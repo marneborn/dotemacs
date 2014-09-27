@@ -45,9 +45,23 @@
        t)
   )
 
+(defun del-trail-and-msg ()
+  "foo"
+  (interactive)
+  (message "here1")
+  )
+(defun del-trail-and-msg2 ()
+  "foo"
+  (interactive)
+  (message "here2")
+  (delete-trailing-whitespace)
+  (message "here3")
+  )
+
 ;
 (add-hook 'js2-mode-hook (lambda () 
                            (require 'js-doc)
+                           (add-hook 'before-save-hook (lambda () (delete-trailing-whitespace)))
                            (make-variable-buffer-local 'js2-basic-offset)
                            (if (string/ends-with (buffer-name) ".json")
                                (setq js2-basic-offset 2) (setq js2-basic-offset 4)
@@ -56,7 +70,7 @@
                            (local-set-key "\C-c@" 'js-doc-insert-tag)
                            (local-set-key "\C-cf" 'js-doc-insert-file-doc)
                            (local-set-key (kbd "RET") (key-binding (kbd "M-j")))
-                           (setq js2-additional-externs '("console" "jQuery" "$" "goog" "describe" "it" "before" "beforeEach" "after" "afterEach" "assert" ))
+                           (setq js2-additional-externs '("console" "$" "_" "describe" "it" "before" "beforeEach" "after" "afterEach" "assert" ))
                            (setq javascript-indent-level 2
                                  javascript-expr-indent-offset 2
                                  indent-tabs-mode nil)

@@ -9749,6 +9749,16 @@ In particular, return the buffer position of the first `for' kwd."
       (goto-char for-kwd)
       (current-column))))
 
+(defun jdoit ()
+  "foo"
+  (interactive)
+  (let (parse-status)
+    (setq parse-status (save-excursion (syntax-ppss (point-at-bol))))
+    (setq indent-col (js2-proper-indentation parse-status))
+    (message "Got: %d" indent-col)
+    )
+  )
+          
 (defun js2-proper-indentation (parse-status)
   "Return the proper indentation for the current line."
   (save-excursion
@@ -9760,6 +9770,7 @@ In particular, return the buffer position of the first `for' kwd."
                                    (js2-multiline-decl-indentation)))
           (bracket (nth 1 parse-status))
           beg)
+      (message "4 %d" bracket)
       (cond
        ;; indent array comprehension continuation lines specially
        ((and bracket
@@ -9768,6 +9779,7 @@ In particular, return the buffer position of the first `for' kwd."
              (>= (point) (save-excursion
                            (goto-char beg)
                            (point-at-bol)))) ; at or after first loop?
+        (message "3")
         (js2-array-comp-indentation parse-status beg))
 
        (ctrl-stmt-indent)
@@ -9778,9 +9790,12 @@ In particular, return the buffer position of the first `for' kwd."
        (declaration-indent)
 
        (bracket
+        (message "5")
         (goto-char bracket)
+        (message "6 - %d" (point))
         (cond
          ((looking-at "[({[][ \t]*\\(/[/*]\\|$\\)")
+          (message "7")
           (let ((p (parse-partial-sexp (point-at-bol) (point))))
             (when (save-excursion (skip-chars-backward " \t)")
                                   (looking-at ")"))
