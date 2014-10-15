@@ -1,0 +1,61 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; json-mode
+(add-to-list 'load-path "~/.emacs.d/json-mode")
+(autoload 'json-mode "json-mode" nil t)
+(add-hook 'json-mode-hook (lambda () (setq js-indent-level 2)))
+(add-to-list 'auto-mode-alist '("\\.json\\'"  . json-mode))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; use js2-mode for .js
+(add-to-list 'load-path "~/.emacs.d/js2-mode")
+(autoload 'js2-mode  "js2-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js\\'"  . js2-mode))
+
+(custom-set-variables
+ '(js2-auto-insert-semicolon t)
+ '(js2-basic-offset 4)
+ '(js2-bounce-indent-p nil)
+ )
+
+;; functions to change the number of spaces on a tab
+(defun indent2 () 
+  "change the current buffer to 2 space indent"
+  (interactive)
+  (message "making buffer %s indent2" (buffer-name))
+  (setq js2-basic-offset 2)
+  )
+(defun indent4 ()
+  "change the current buffer to 4 space indent"
+  (interactive)
+  (message "making buffer %s indent4" (buffer-name))
+  (setq js2-basic-offset 4)
+  )
+
+(add-hook 'js2-mode-hook (lambda () 
+                           (require 'js-doc)
+                           ;(js2-imenu-extras-mode)
+                           (add-hook 'before-save-hook (lambda () (delete-trailing-whitespace)))
+                           (local-set-key "\C-ci" 'js-doc-insert-function-doc)
+                           (local-set-key "\C-c@" 'js-doc-insert-tag)
+                           (local-set-key "\C-cf" 'js-doc-insert-file-doc)
+                           (local-set-key (kbd "RET") (key-binding (kbd "M-j")))
+                           (setq-default js2-global-externs '(
+                                                              "module" "exports" "require" "__dirname" 
+                                                              "setTimeout" "clearTimeout" "setInterval" "clearInterval" 
+                                                              "assert" "refute" 
+                                                              "$" "_"
+                                                              "describe" "ddescripe" "xdescribe"
+                                                              "it" "iit" "xit"
+                                                              "beforeEach" "afterEach"
+                                                              "location" "console" "JSON"))
+;                           (local
+                           (make-variable-buffer-local 'js2-basic-offset)
+                           (make-variable-buffer-local 'js2-indent-chained)
+                           (setq javascript-indent-level 4
+                                 javascript-expr-indent-offset 4
+                                 js2-basic-offset 4
+                                 js2-indent-chained nil
+                                 )
+          ))
+
+
