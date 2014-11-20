@@ -1,0 +1,32 @@
+(defun mpa-beautify-line ()
+  (interactive)
+  (goto-char (point-at-bol))
+  (indent-for-tab-command)
+  (delete-trailing-whitespace (point-at-bol) (point-at-eol)) ; (line-beginning-position) (line-end-position))
+  (forward-line 1)
+  )
+
+(defun mpa-beautify (beg end &optional arg)
+  (interactive "*r\nP")
+  (cond ((use-region-p)
+         (goto-char beg)
+         (let ((prev -1))
+           (while (and (< (point) end) (/= prev (point)))
+             (setq prev (point))
+             (mpa-beautify-line)
+             )))
+        (t
+         (when (not arg) (setq arg 1))
+         (let ((cnt 0))
+           (while (> arg cnt)
+             (setq cnt (+ cnt 1))
+             (mpa-beautify-line)
+             )))))
+
+(global-set-key (kbd "C-b") 'mpa-beautify)
+(global-set-key (kbd "M-b") (lambda () (interactive) (mpa-beautify (point-min) (point-max))))
+
+(global-set-key (kbd "C->") 'increase-left-margin)
+(global-set-key (kbd "C-<") 'decrease-left-margin)
+
+(provide 'init-beautify)

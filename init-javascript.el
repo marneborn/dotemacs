@@ -14,7 +14,7 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'"  . js2-mode))
 
 (defun defineIndentFuncs ()
-  (defun mysetjsindent (num) 
+  (defun mysetjsindent (num)
     "sets the number of indents of the current buffer to the number"
     (cond
      ((eq major-mode 'json-mode)
@@ -23,54 +23,53 @@
      ((eq major-mode 'js2-mode)
       (setq js2-basic-offset num))
      ))
-                           
+
   ;; functions to change the number of spaces on a tab
   (defun indent2 ()
     "change the current buffer to 2 space indent"
     (interactive)
     (mysetjsindent 2)
     )
-  (defun indent4 () 
+  (defun indent4 ()
     "change the current buffer to 4 space indent"
     (interactive)
     (mysetjsindent 4)
     )
-)
+  )
 
-(add-hook 'json-mode-hook (lambda () 
-                           (defineIndentFuncs)
-                           ))
+(add-hook 'json-mode-hook (lambda ()
+                            (defineIndentFuncs)
+                            (setq mpa-comment-string "//")
+                            ))
 
-(add-hook 'js2-mode-hook (lambda () 
+(add-hook 'js2-mode-hook (lambda ()
                            (require 'js-doc)
                            (require 'js2-imenu-extras)
                            (js2-imenu-extras-mode)
                            (defineIndentFuncs)
-                           (add-hook 'before-save-hook (lambda () (delete-trailing-whitespace)))
+                           (add-hook 'before-save-hook (lambda () (delete-trailing-whitespace)) nil t)
                            (local-set-key "\C-ci" 'js-doc-insert-function-doc)
                            (local-set-key "\C-c@" 'js-doc-insert-tag)
                            (local-set-key "\C-cf" 'js-doc-insert-file-doc)
                            (local-set-key (kbd "RET") (key-binding (kbd "M-j")))
                            (setq-default js2-global-externs '(
-                                                              "module" "exports" "require" "__dirname" 
-                                                              "setTimeout" "clearTimeout" "setInterval" "clearInterval" 
-                                                              "assert" "refute" 
+                                                              "module" "exports" "require" "__dirname"
+                                                              "setTimeout" "clearTimeout" "setInterval" "clearInterval"
+                                                              "assert" "refute"
+                                                              "angular" "google"
                                                               "$" "_"
                                                               "describe" "ddescripe" "xdescribe"
                                                               "it" "iit" "xit"
                                                               "beforeEach" "afterEach"
                                                               "location" "console" "JSON"))
-                           ;; make it so that indention params can be set for individual buffers
-                           (make-variable-buffer-local 'js2-basic-offset)
-                           (make-variable-buffer-local 'js2-indent-chained)
-                           '(js2-auto-insert-semicolon t)
-                           '(js2-basic-offset 4)
-                           '(js2-bounce-indent-p nil)
-                           (setq javascript-indent-level 4
-                                 javascript-expr-indent-offset 4
-                                 js2-basic-offset 4
-                                 js2-indent-chained nil
-                                 )
+                           (set (make-local-variable 'js2-auto-insert-semicolon) t)
+                           (set (make-local-variable 'js2-bounce-indent-p) nil)
+                           (set (make-local-variable 'js2-basic-offset) 4)
+                           (set (make-local-variable 'js2-indent-chained) nil)
+                           (set (make-local-variable 'comment-style) 'plain)
+                           (set (make-local-variable 'javascript-indent-level) 4)
+                           (set (make-local-variable 'javascript-expr-indent-offset) 4)
+                           (set (make-local-variable 'js-doc-description-line) " * Describe the function here\n")
                            ))
 
 
