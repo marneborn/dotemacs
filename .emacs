@@ -1,5 +1,6 @@
 
-(setq-default indent-tabs-mode nil)
+(setq-default indent-tabs-mode t)
+(setq-default tab-width 4)
 (add-to-list 'load-path "~/.emacs.d/")
 
 ;; my kbd definitions
@@ -12,15 +13,16 @@
 (set-default 'truncate-lines t)
 (setq truncate-partial-width-windows nil)
 
+(require 'init-beautify)
+(require 'init-comment)
 (require 'init-javascript)
 (require 'init-perl)
 (require 'init-lisp)
-(require 'init-comment)
-(require 'init-beautify)
+(require 'init-web)
 
 (add-to-list 'load-path "~/.emacs.d/async")
-
 (add-to-list 'load-path "~/.emacs.d/helm");
+
 (require 'helm-config)
 
 ;(require 'ido)

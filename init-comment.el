@@ -16,7 +16,7 @@
     (when empty-line (delete-backward-char (string-width tmp-string)))
 ))
 
- ;; Original idea from
+;; Original idea from
 ;; http://www.opensubscriber.com/message/emacs-devel@gnu.org/10971693.html
 (defun comment-dwim-line (&optional arg)
   "Replacement for the comment-dwim command.
@@ -33,26 +33,26 @@
   (interactive "P")
   (when (not numLines) (setq numLines 1))
   (let ((cnt 0))
-    (while (> numLines cnt)
-      (setq cnt (+ cnt 1))
-      (toggle-comment-on-line)
-      (forward-line 1)
-      )
-    ))
+	(while (> numLines cnt)
+	  (setq cnt (+ cnt 1))
+	  (toggle-comment-on-line)
+	  (forward-line 1)
+	  )
+	))
 
 (defun mpa-comment-or-uncomment-region (beg end &optional arg)
   (interactive "*r\nP")
   (if (use-region-p)
-    (save-excursion
-      (goto-char beg)
-      (setq beg (point-at-bol))
-      (goto-char end)
-      (setq end (point-at-eol))
-      )
-    (save-excursion
-      (setq beg (point-at-bol))
-      (setq end (point-at-eol))
-      ))
+	  (save-excursion
+		(goto-char beg)
+		(setq beg (point-at-bol))
+		(goto-char end)
+		(setq end (point-at-eol))
+		)
+	(save-excursion
+	  (setq beg (point-at-bol))
+	  (setq end (point-at-eol))
+	  ))
   (comment-or-uncomment-region beg end arg)
   )
 
@@ -65,7 +65,7 @@
                   (interactive)
                   ))
 
-(global-set-key (kbd "C-b") 'beautify)
+(global-set-key (kbd "C-b") 'mpa-beautify)
 
 ;(global-set-key (kbd "C-,") 'uncomment-region)
 
