@@ -1,0 +1,15 @@
+[submodule "js2-mode"]
+	path = js2-mode
+	url = https://github.com/marneborn/js2-mode.git
+[submodule "json-mode"]
+	path = json-mode
+	url = https://github.com/joshwnj/json-mode.git
+[submodule "web-mode"]
+	path = web-mode
+	url = https://github.com/fxbois/web-mode.git
+[submodule "json-reformat"]
+	path = json-reformat
+	url = https://github.com/gongo/json-reformat
+[submodule "json-snatcher"]
+	path = json-snatcher
+	url = https://github.com/Sterlingg/json-snatcher

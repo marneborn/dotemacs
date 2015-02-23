@@ -23,7 +23,7 @@
 (add-to-list 'load-path "~/.emacs.d/async")
 (add-to-list 'load-path "~/.emacs.d/helm");
 
-(require 'helm-config)
+; (require 'helm-config)
 
 ;(require 'ido)
 ;(ido-mode t);
