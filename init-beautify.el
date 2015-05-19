@@ -1,6 +1,7 @@
 (defun mpa-beautify-line ()
   (interactive)
-  (when (not (comment-only-p (point-at-bol) (point-at-eol)))
+  (if (comment-only-p (point-at-bol) (point-at-eol))
+	  (forward-line 1)
 	(goto-char (point-at-bol))
 	(indent-for-tab-command)
 	(delete-trailing-whitespace (point-at-bol) (point-at-eol))
@@ -51,10 +52,23 @@
 	 )
 	)
 
+  ;; switch bewteen space and tab inserts
+  (defun indent-with-spaces ()
+	"use spaces to indent"
+	(interactive)
+	(setq-default indent-tabs-mode t)
+	)
+  (defun indent-with-tabs ()
+	"use spaces to indent"
+	(interactive)
+	(setq-default indent-tabs-mode t)
+	)
+
   ;; functions to change the number of spaces on a tab
   (defun indent2 ()
     "change the current buffer to 2 space indent"
     (interactive)
+	(indent-with-spaces)
     (mysetindent 2)
     )
   (defun indent4 ()
@@ -68,7 +82,7 @@
     (mysetindent 8)
     )
   )
-
+	
 (defineIndentFuncs)
 
 (provide 'init-beautify)

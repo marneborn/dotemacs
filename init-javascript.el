@@ -32,6 +32,7 @@
 								   "describe" "ddescribe" "xdescribe" "fdescribe"
 								   "it" "iit" "xit" "fit"
 								   "beforeEach" "afterEach"
+								   "spyOn"
 								   "location" "console" "JSON" "localStorage"
 								   )
 			  )
@@ -48,7 +49,6 @@
                            (local-set-key "\C-cf" 'js-doc-insert-file-doc)
                            (local-set-key (kbd "RET") (key-binding (kbd "M-j")))
 
-;; 						   (local-set-key (kbd "<tab>") 'mpa-beautify)
                            (set (make-local-variable 'js2-auto-insert-semicolon) t)
                            (set (make-local-variable 'js2-bounce-indent-p) nil)
                            (set (make-local-variable 'js2-basic-offset) 4)

@@ -21,7 +21,6 @@
 						   (setq comment-start "<!--")
 						   (setq comment-end "-->")
                            (setq comment-style 'plain)
-						   (local-set-key (kbd "<tab>") 'mpa-beautify)
                            (defineIndentFuncs)
                            ))
 ;; More comment stuff is in init-comment.js

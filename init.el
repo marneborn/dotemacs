@@ -3,6 +3,7 @@
 (setq-default tab-width 4)
 (add-to-list 'load-path "~/.emacs.d/")
 
+(message "Loading beautify functions");
 ;; my kbd definitions
 (fset 'getem
    [?\C-s ?\C-s ?\C-a ?\C-k ?\C-k ?\C-r ?\C-r down ?\C-a ?\C-y])
