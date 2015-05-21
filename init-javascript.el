@@ -14,7 +14,7 @@
 
 (add-hook 'json-mode-hook (lambda ()
                             (defineIndentFuncs)
-							(setq-default indent-tabs-mode f)
+							(setq indent-tabs-mode nil)
 							(indent2)
                             (setq mpa-comment-string "//")
                             ))

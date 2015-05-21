@@ -38,13 +38,13 @@
 	(interactive)
     (cond
      ((eq major-mode 'json-mode)
-	  (setq-local tab-width num)
+	  (setq tab-width num)
       )
      ((eq major-mode 'js2-mode)
-	  (setq-local tab-width num)
-	  (setq-local js2-basic-offset num)
-	  (setq-local javascript-indent-level num)
-	  (setq-local javascript-expr-indent-offset num)
+	  (setq tab-width num)
+	  (setq js2-basic-offset num)
+	  (setq javascript-indent-level num)
+	  (setq javascript-expr-indent-offset num)
       )
      ((eq major-mode 'web-mode)
       (setq web-mode-markup-indent-offset num)
@@ -56,12 +56,12 @@
   (defun indent-with-spaces ()
 	"use spaces to indent"
 	(interactive)
-	(setq-default indent-tabs-mode t)
+	(setq indent-tabs-mode nil)
 	)
   (defun indent-with-tabs ()
 	"use spaces to indent"
 	(interactive)
-	(setq-default indent-tabs-mode t)
+	(setq indent-tabs-mode t)
 	)
 
   ;; functions to change the number of spaces on a tab
