@@ -1,6 +1,3 @@
-[submodule "js2-mode"]
-	path = js2-mode
-	url = https://github.com/marneborn/js2-mode.git
 [submodule "json-mode"]
 	path = json-mode
 	url = https://github.com/joshwnj/json-mode.git
@@ -13,3 +10,6 @@
 [submodule "json-snatcher"]
 	path = json-snatcher
 	url = https://github.com/Sterlingg/json-snatcher
+[submodule "js2-mode"]
+	path = js2-mode
+	url = https://github.com/marneborn/js2-mode
