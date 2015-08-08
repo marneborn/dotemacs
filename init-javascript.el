@@ -14,14 +14,15 @@
 
 (add-hook 'json-mode-hook (lambda ()
                             (defineIndentFuncs)
-							(setq indent-tabs-mode nil)
 							(indent2)
+							(indent-with-spaces)
                             (setq mpa-comment-string "//")
                             ))
 
 ;; should I move these into `js2-additional-externs' or `js2-default-externs',
 (setq-default js2-global-externs '(
 								   "module" "exports" "require" "__dirname" "process"
+								   "Buffer"
 								   "setTimeout" "clearTimeout" "setInterval" "clearInterval"
 								   "assert" "refute"
 								   "angular"
@@ -43,6 +44,7 @@
                            (js2-imenu-extras-mode)
                            (defineIndentFuncs)
 						   (indent4)
+						   (indent-with-spaces)
                            (add-hook 'before-save-hook (lambda () (delete-trailing-whitespace)) nil t)
                            (local-set-key "\C-ci" 'js-doc-insert-function-doc)
                            (local-set-key "\C-c@" 'js-doc-insert-tag)

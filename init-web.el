@@ -11,6 +11,7 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode))
 
+
 (autoload 'web-mode "web-mode" nil t)
 
 (add-hook 'web-mode-hook (lambda ()
@@ -22,6 +23,8 @@
 						   (setq comment-end "-->")
                            (setq comment-style 'plain)
                            (defineIndentFuncs)
+						   (indent2)
+						   (indent-with-spaces)
                            ))
 ;; More comment stuff is in init-comment.js
 

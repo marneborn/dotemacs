@@ -49,6 +49,9 @@
      ((eq major-mode 'web-mode)
       (setq web-mode-markup-indent-offset num)
       )
+     ((eq major-mode 'css-mode)
+	  (setq css-indent-offset num)
+	  )
 	 )
 	)
 
@@ -68,7 +71,6 @@
   (defun indent2 ()
     "change the current buffer to 2 space indent"
     (interactive)
-	(indent-with-spaces)
     (mysetindent 2)
     )
   (defun indent4 ()
