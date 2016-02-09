@@ -6,6 +6,8 @@
 (autoload 'json-mode "json-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.json\\'"  . json-mode))
 
+(load "json-reformat")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; use js2-mode for .js
 (add-to-list 'load-path "~/.emacs.d/js2-mode")
