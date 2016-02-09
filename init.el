@@ -1,12 +1,16 @@
 
 (setq-default indent-tabs-mode t)
 (setq-default tab-width 4)
+
 (add-to-list 'load-path "~/.emacs.d/")
 
 (message "Loading beautify functions");
 ;; my kbd definitions
 (fset 'getem
    [?\C-s ?\C-s ?\C-a ?\C-k ?\C-k ?\C-r ?\C-r down ?\C-a ?\C-y])
+(fset 'expand
+   [?\C-a ?^ ?\C-r ?^ ?\C-r right ?\C-k ?\C-y ?\C-s ?^ ?\C-m ?\C-x ?b ?* ?f ?o ?r ?e ?x ?p ?a ?n ?d ?* return ?\C-y ?\M-l ?1 return ?\C-x ?b return ?\C-k backspace ?\C-x ?b return escape ?x ?r ?e ?p ?l ?  ?s return ?# return ?\C-y return ?\C-a ?\C-k ?\C-x ?k return ?\C-y down ?\C-a])
+
 
 (global-set-key (kbd "M-l") 'goto-line)
 (global-set-key (kbd "C-l") 'recenter)
@@ -42,3 +46,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+
+(defun beautify-json ()
+  (interactive)
+  (let ((b (if mark-active (min (point) (mark)) (point-min)))
+        (e (if mark-active (max (point) (mark)) (point-max))))
+    (shell-command-on-region b e
+							 "python -mjson.tool" (current-buffer) t)))

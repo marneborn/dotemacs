@@ -29,11 +29,12 @@
 								   "google"
 								   "$" "$$" "_"
 								   "browser" "element" "by"
-								   "expect"
+								   "jasmine" "expect"
 								   "describe" "ddescribe" "xdescribe" "fdescribe"
 								   "it" "iit" "xit" "fit"
 								   "beforeEach" "afterEach"
 								   "spyOn"
+								   "inject"
 								   "location" "console" "JSON" "localStorage"
 								   )
 			  )

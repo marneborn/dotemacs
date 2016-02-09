@@ -39,6 +39,8 @@
     (cond
      ((eq major-mode 'json-mode)
 	  (setq tab-width num)
+	  (setq js-indent-level num)
+	  (setq json-reformat:indent-width num)
       )
      ((eq major-mode 'js2-mode)
 	  (setq tab-width num)
