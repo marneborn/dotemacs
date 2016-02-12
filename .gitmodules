@@ -13,3 +13,6 @@
 [submodule "js2-mode"]
 	path = js2-mode
 	url = https://github.com/marneborn/js2-mode
+[submodule "jshint-mode"]
+	path = jshint-mode
+	url = ./jshint-mode
