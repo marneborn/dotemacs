@@ -1,4 +1,7 @@
 
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
+
 (setq-default indent-tabs-mode t)
 (setq-default tab-width 4)
 
@@ -47,3 +50,4 @@
  ;; If there is more than one, they won't work right.
  )
 
+(put 'upcase-region 'disabled nil)
