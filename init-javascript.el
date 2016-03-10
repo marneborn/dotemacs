@@ -9,6 +9,12 @@
 (load "json-reformat")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'load-path "~/.emacs.d/jshint-mode")
+(require 'flymake-jshint)
+(add-hook 'javascript-mode-hook
+     (lambda () (flymake-mode t)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; use js2-mode for .js
 (add-to-list 'load-path "~/.emacs.d/js2-mode")
 (autoload 'js2-mode  "js2-mode" nil t)
