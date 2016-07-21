@@ -5,6 +5,7 @@
 ;; (require 'js2-node-mode);
 
 (load-file "~/.emacs.d/js2-minor-modes/js2-node-mode.el")
+(load-file "~/.emacs.d/js2-minor-modes/js2-jasmine-mode.el")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; json-mode
@@ -44,12 +45,6 @@
 								   "google"
 								   "$" "$$" "_"
 								   "browser" "element" "by"
-								   "jasmine" "expect"
-								   "describe" "ddescribe" "xdescribe" "fdescribe"
-								   "it" "iit" "xit" "fit"
-								   "beforeEach" "afterEach"
-								   "beforeAll" "afterAll"
-								   "spyOn"
 								   "inject"
 								   "location" "localStorage"
 								   )
