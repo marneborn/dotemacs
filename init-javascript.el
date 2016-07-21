@@ -1,13 +1,4 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; load minor modes
-;; (add-to-list 'load-path "~/.emacs.d/js2-minor-modes")
-;; (autoload 'js2-node-mode  "js2-node-mode" nil t)
-;; (require 'js2-node-mode);
-
-(load-file "~/.emacs.d/js2-minor-modes/js2-node-mode.el")
-(load-file "~/.emacs.d/js2-minor-modes/js2-jasmine-mode.el")
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; json-mode
 (add-to-list 'load-path "~/.emacs.d/json-mode")
 (add-to-list 'load-path "~/.emacs.d/json-snatcher")
@@ -31,11 +22,18 @@
      (lambda () (flymake-mode t)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; load minor modes
+(add-to-list 'load-path "~/.emacs.d/js2-minor-modes")
+(require 'js2-node-mode)
+(require 'js2-browser-mode)
+(require 'js2-jasmine-mode)
+(require 'js2-karma-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; use js2-mode for .js
 (add-to-list 'load-path "~/.emacs.d/js2-mode")
 (autoload 'js2-mode  "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js\\'"  . js2-mode))
-
 
 ;; should I move these into `js2-additional-externs' or `js2-default-externs',
 ;; moving externs to minor modes, remove from here as modes are created
@@ -44,8 +42,6 @@
 								   "angular" "protractor"
 								   "google"
 								   "$" "$$" "_"
-								   "browser" "element" "by"
-								   "inject"
 								   "location" "localStorage"
 								   )
 			  )
@@ -69,7 +65,16 @@
                            (set (make-local-variable 'js2-indent-chained) nil)
                            (set (make-local-variable 'comment-style) 'plain)
                            (set (make-local-variable 'js-doc-description-line) " * Describe the function here\n")
+
+						   ;; node mode by default
+						   (js2-node-mode 1)
                            ))
 
+;; Go into jasmine mode for anything that is .spec.js
+(defun turn-on-jasmine-mode-hook ()
+  (cond ((string-match ".spec.js" buffer-file-name)
+         (js2-jasmine-mode 1)
+		 )))
+(add-hook 'js2-mode-hook 'turn-on-jasmine-mode-hook)
 
 (provide 'init-javascript)

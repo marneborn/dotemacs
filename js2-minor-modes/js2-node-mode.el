@@ -1,3 +1,5 @@
+(message "HERE")
+
 ;; Creating a minor mode for node within js2-mode
 ;; Need custom j2-mode that makes js2-reparse interactive though...
 
@@ -11,7 +13,8 @@
           '())
   "Node.js externs not in js2-mode")
 
-(defun j2s-node-mode-enter ()
+(defun js2-node-mode-enter ()
+  (interactive)
   (setq js2-additional-externs
 		(append 
 		 js2-node-mode-additional-externs 
@@ -21,7 +24,7 @@
   (js2-reparse t)
   )
 
-(defun j2s-node-mode-exit ()
+(defun js2-node-mode-exit ()
   (setq js2-additional-externs '())
   (js2-reparse t)
   )
@@ -37,9 +40,9 @@ Setup js2-mode for node"
   :keymap nil
 
   (if js2-node-mode
-	  (j2s-node-mode-enter)
-	(j2s-node-mode-exit)
+	  (js2-node-mode-enter)
+	(js2-node-mode-exit)
 	)
   )
 
-
+(provide 'js2-node-mode)

@@ -18,18 +18,18 @@
 			))
   "Jasmine externs not in js2-mode")
 
-(defun j2s-jasmine-mode-enter ()
+(defun js2-jasmine-mode-enter ()
+  (interactive)
+  (js2-node-mode-enter)
   (setq js2-additional-externs
 		(append
-		 js2-node-mode-additional-externs
+		 js2-additional-externs
 		 js2-jasmine-mode-additional-externs
-		 js2-node-externs
-		 js2-harmony-externs
 		))
   (js2-reparse t)
   )
 
-(defun j2s-jasmine-mode-exit ()
+(defun js2-jasmine-mode-exit ()
   (setq js2-additional-externs '())
   (js2-reparse t)
   )
@@ -45,9 +45,10 @@ Setup js2-mode for jasmine"
   :keymap nil
 
   (if js2-jasmine-mode
-	  (j2s-jasmine-mode-enter)
-	(j2s-jasmine-mode-exit)
+	  (js2-jasmine-mode-enter)
+	(js2-jasmine-mode-exit)
 	)
   )
 
+(provide 'js2-jasmine-mode)
 
