@@ -46,6 +46,14 @@
 								   )
 			  )
 
+;; Go into jasmine mode for anything that is .spec.js
+(defun turn-on-jasmine-mode-hook ()
+  (cond ((string-match ".spec.js" buffer-file-name)
+         (js2-jasmine-mode 1)
+		 )))
+(add-hook 'js2-mode-hook 'turn-on-jasmine-mode-hook)
+
+
 (add-hook 'js2-mode-hook (lambda ()
                            (require 'js-doc)
                            (require 'js2-imenu-extras)
@@ -67,14 +75,9 @@
                            (set (make-local-variable 'js-doc-description-line) " * Describe the function here\n")
 
 						   ;; node mode by default
-						   (js2-node-mode 1)
-                           ))
-
-;; Go into jasmine mode for anything that is .spec.js
-(defun turn-on-jasmine-mode-hook ()
-  (cond ((string-match ".spec.js" buffer-file-name)
-         (js2-jasmine-mode 1)
-		 )))
-(add-hook 'js2-mode-hook 'turn-on-jasmine-mode-hook)
+						   (if (string-match ".spec.js" buffer-file-name)
+							   (js2-jasmine-mode 1)
+							 (js2-node-mode 1)
+							 )))
 
 (provide 'init-javascript)

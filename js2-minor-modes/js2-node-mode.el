@@ -1,5 +1,3 @@
-(message "HERE")
-
 ;; Creating a minor mode for node within js2-mode
 ;; Need custom j2-mode that makes js2-reparse interactive though...
 
