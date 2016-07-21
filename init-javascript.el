@@ -1,10 +1,25 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; load minor modes
+;; (add-to-list 'load-path "~/.emacs.d/js2-minor-modes")
+;; (autoload 'js2-node-mode  "js2-node-mode" nil t)
+;; (require 'js2-node-mode);
+
+(load-file "~/.emacs.d/js2-minor-modes/js2-node-mode.el")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; json-mode
 (add-to-list 'load-path "~/.emacs.d/json-mode")
 (add-to-list 'load-path "~/.emacs.d/json-snatcher")
 (add-to-list 'load-path "~/.emacs.d/json-reformat")
 (autoload 'json-mode "json-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.json\\'"  . json-mode))
+
+(add-hook 'json-mode-hook (lambda ()
+                            (defineIndentFuncs)
+							(indent2)
+							(indent-with-spaces)
+                            (setq mpa-comment-string "//")
+                            ))
 
 (load "json-reformat")
 
@@ -20,18 +35,10 @@
 (autoload 'js2-mode  "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js\\'"  . js2-mode))
 
-(add-hook 'json-mode-hook (lambda ()
-                            (defineIndentFuncs)
-							(indent2)
-							(indent-with-spaces)
-                            (setq mpa-comment-string "//")
-                            ))
 
 ;; should I move these into `js2-additional-externs' or `js2-default-externs',
+;; moving externs to minor modes, remove from here as modes are created
 (setq-default js2-global-externs '(
-								   "module" "exports" "require" "__dirname" "process"
-								   "Buffer"
-								   "setTimeout" "clearTimeout" "setInterval" "clearInterval"
 								   "assert" "refute"
 								   "angular" "protractor"
 								   "google"
@@ -44,7 +51,7 @@
 								   "beforeAll" "afterAll"
 								   "spyOn"
 								   "inject"
-								   "location" "console" "JSON" "localStorage"
+								   "location" "localStorage"
 								   )
 			  )
 
