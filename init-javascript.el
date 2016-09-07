@@ -24,9 +24,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; load minor modes
 (add-to-list 'load-path "~/.emacs.d/js2-minor-modes")
+(load-file "~/.emacs.d/js2-minor-modes/utils.el")
 (require 'js2-node-mode)
 (require 'js2-browser-mode)
 (require 'js2-jasmine-mode)
+(require 'js2-protractor-mode)
 (require 'js2-karma-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -34,25 +36,6 @@
 (add-to-list 'load-path "~/.emacs.d/js2-mode")
 (autoload 'js2-mode  "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js\\'"  . js2-mode))
-
-;; should I move these into `js2-additional-externs' or `js2-default-externs',
-;; moving externs to minor modes, remove from here as modes are created
-(setq-default js2-global-externs '(
-								   "assert" "refute"
-								   "angular" "protractor"
-								   "google"
-								   "$" "$$" "_"
-								   "location" "localStorage"
-								   )
-			  )
-
-;; Go into jasmine mode for anything that is .spec.js
-(defun turn-on-jasmine-mode-hook ()
-  (cond ((string-match ".spec.js" buffer-file-name)
-         (js2-jasmine-mode 1)
-		 )))
-(add-hook 'js2-mode-hook 'turn-on-jasmine-mode-hook)
-
 
 (add-hook 'js2-mode-hook (lambda ()
                            (require 'js-doc)
@@ -74,10 +57,10 @@
                            (set (make-local-variable 'comment-style) 'plain)
                            (set (make-local-variable 'js-doc-description-line) " * Describe the function here\n")
 
-						   ;; node mode by default
+						   ;; node mode by default, but jasmine if .spec.js
 						   (if (string-match ".spec.js" buffer-file-name)
 							   (js2-jasmine-mode 1)
 							 (js2-node-mode 1)
-							 )))
-
+							 )
+						   ))
 (provide 'init-javascript)

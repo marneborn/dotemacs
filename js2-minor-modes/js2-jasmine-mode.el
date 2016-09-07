@@ -19,24 +19,18 @@
   "Jasmine externs not in js2-mode")
 
 (defun js2-jasmine-mode-enter ()
-  (interactive)
-  (js2-node-mode-enter)
-  (setq js2-additional-externs
-		(append
-		 js2-additional-externs
-		 js2-jasmine-mode-additional-externs
-		))
+  (js2-node-mode 1)
+  (js2-minor-mode-add-externs js2-jasmine-mode-additional-externs)
   (js2-reparse t)
   )
 
 (defun js2-jasmine-mode-exit ()
-  (setq js2-additional-externs '())
+  (js2-minor-mode-remove-externs js2-jasmine-mode-additional-externs)
   (js2-reparse t)
   )
 
 (define-minor-mode js2-jasmine-mode
-  "Toggle js2-jasmine-mode
-Setup js2-mode for jasmine"
+  "Toggle js2-jasmine-mode"
   ;; The initial value.
   :init-value nil
   ;; The indicator for the mode line.

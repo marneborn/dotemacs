@@ -8,18 +8,21 @@
 
 (defvar js2-browser-mode-externs
   (mapcar 'symbol-name
-          '(
-			))
+          '()
+		  )
   "Browser externs not in js2-mode")
 
 (defun js2-browser-mode-enter ()
   (interactive)
-  (setq js2-additional-externs js2-browser-mode-externs)
+  (js2-node-mode 0)
+  (js2-minor-mode-add-externs js2-browser-mode-externs)
+  (js2-minor-mode-add-externs js2-browser-externs)
   (js2-reparse t)
   )
 
 (defun js2-browser-mode-exit ()
-  (setq js2-additional-externs '())
+  (js2-minor-mode-remove-externs js2-browser-mode-externs)
+  (js2-minor-mode-remove-externs js2-browser-externs)
   (js2-reparse t)
   )
 
