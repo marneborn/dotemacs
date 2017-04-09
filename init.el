@@ -3,7 +3,7 @@
 (setq uniquify-buffer-name-style 'forward)
 
 (setq-default indent-tabs-mode t)
-(setq-default tab-width 4)
+(setq-default tab-width 2)
 
 (add-to-list 'load-path "~/.emacs.d/")
 
