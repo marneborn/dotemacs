@@ -9,13 +9,13 @@
 (defvar js2-jasmine-mode-additional-externs
   (mapcar 'symbol-name
           '(
-			jasmine
-			expect
-			describe xdescribe fdescribe
-			it xit fit
-			beforeEach beforeAll afterEach afterAll
-			spyOn
-			))
+            jasmine
+            expect
+            describe xdescribe fdescribe
+            it xit fit
+            beforeEach beforeAll afterEach afterAll
+            spyOn
+            ))
   "Jasmine externs not in js2-mode")
 
 (defun js2-jasmine-mode-enter ()

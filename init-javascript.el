@@ -41,7 +41,6 @@
                            (require 'js-doc)
                            (require 'js2-imenu-extras)
                            (js2-imenu-extras-mode)
-													 (message "starting js2-mode %s" (buffer-name))
                            (add-hook 'before-save-hook (lambda () (delete-trailing-whitespace)) nil t)
                            (local-set-key "\C-ci" 'js-doc-insert-function-doc)
                            (local-set-key "\C-c@" 'js-doc-insert-tag)
