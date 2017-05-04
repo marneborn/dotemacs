@@ -35,9 +35,13 @@
 ;; use js2-mode for .js
 (add-to-list 'load-path "~/.emacs.d/js2-mode")
 (autoload 'js2-mode  "js2-mode" nil t)
+(autoload 'js2-jsx-mode  "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js\\'"  . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-jsx-mode))
 
 (add-hook 'js2-mode-hook (lambda ()
+                           (message "in js2-mode")
                            (require 'js-doc)
                            (require 'js2-imenu-extras)
                            (js2-imenu-extras-mode)

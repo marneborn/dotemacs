@@ -36,16 +36,14 @@
   (defun mysetindent (num)
     "sets the number of indents of the current buffer to the number"
 		(interactive)
-		(message "Setting indent to %s %s" num (buffer-name));
     (cond
      ((eq major-mode 'json-mode)
 			(setq tab-width num)
 			(setq js-indent-level num)
 			(setq json-reformat:indent-width num)
       )
-     ((eq major-mode 'js2-mode)
+     ((or (eq major-mode 'js2-mode) (eq major-mode 'js2-jsx-mode))
 			(setq tab-width num)
-			(setq js2-basic-offset num)	
 			(setq js-indent-level num)
 			(setq js2-basic-offset num)
 			(setq javascript-indent-level num)
@@ -58,7 +56,6 @@
 			(setq css-indent-offset num)
 			)
 		 )
-		(message "set indent to %s - %s - %s, %s, %s" num (buffer-name) tab-width js-indent-level js2-basic-offset)
 		)
 	
   ;; switch bewteen space and tab inserts
