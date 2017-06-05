@@ -55,6 +55,7 @@
                            (set (make-local-variable 'js2-bounce-indent-p) nil)
                            (set (make-local-variable 'js2-basic-offset) 4)
                            (set (make-local-variable 'js2-indent-chained) nil)
+                           (set (make-local-variable 'js2-strict-missing-semi-warning) nil)
                            (set (make-local-variable 'comment-style) 'plain)
                            (set (make-local-variable 'js-doc-description-line) " * Describe the function here\n")
 
@@ -67,6 +68,6 @@
                            (defineIndentFuncs)
 													 (indent2)
 													 (indent-with-spaces)
-
+                           (require-no-semi)
 													 ))
 (provide 'init-javascript)

@@ -98,4 +98,14 @@
     (shell-command-on-region b e "python -mjson.tool" (current-buffer) t))
 	)
 
+;; toggle requiring semicolons
+(defun require-semi () 
+  (interactive)
+  (setq js2-strict-missing-semi-warning t)
+  )
+(defun require-no-semi () 
+  (interactive)
+  (setq js2-strict-missing-semi-warning nil)
+  )
+
 (provide 'init-beautify)
