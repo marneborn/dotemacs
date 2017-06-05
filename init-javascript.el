@@ -40,6 +40,26 @@
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-jsx-mode))
 
+;; toggle requiring semicolons
+(defun js2-require-semi () 
+  (interactive)
+  (setq js2-strict-missing-semi-warning t)
+  )
+(defun js2-no-require-semi () 
+  (interactive)
+  (setq js2-strict-missing-semi-warning nil)
+  )
+
+;; toggle allowing commas after last item in array literal
+(defun js2-allow-comma () 
+  (interactive)
+  (setq js2-strict-trailing-comma-warning nil)
+  )
+(defun js2-no-allow-comma ()
+  (interactive)
+  (setq js2-strict-trailing-comma-warning t)
+  )
+
 (add-hook 'js2-mode-hook (lambda ()
                            (message "in js2-mode")
                            (require 'js-doc)
@@ -68,6 +88,7 @@
                            (defineIndentFuncs)
 													 (indent2)
 													 (indent-with-spaces)
-                           (require-no-semi)
+                           (js2-no-require-semi)
+                           (js2-allow-comma)
 													 ))
 (provide 'init-javascript)
