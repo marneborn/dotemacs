@@ -13,7 +13,8 @@
             expect
             describe xdescribe fdescribe
             it xit fit
-            beforeEach beforeAll afterEach afterAll
+            before beforeEach beforeAll 
+            after afterEach afterAll
             spyOn
             ))
   "Jasmine externs not in js2-mode")

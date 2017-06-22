@@ -60,6 +60,14 @@
   (setq js2-strict-trailing-comma-warning t)
   )
 
+(defvar js2-custom-additional-externs
+  (mapcar 'symbol-name
+          '(
+            async
+            await
+            ))
+  "Externs not in js2-mode")
+
 (add-hook 'js2-mode-hook (lambda ()
                            (message "in js2-mode")
                            (require 'js-doc)
@@ -85,6 +93,7 @@
 														 (js2-node-mode 1)
 														 )
 
+                           (js2-minor-mode-add-externs js2-custom-additional-externs)
                            (defineIndentFuncs)
 													 (indent2)
 													 (indent-with-spaces)
