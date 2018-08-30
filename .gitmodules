@@ -16,3 +16,6 @@
 [submodule "js3-mode"]
 	path = js3-mode
 	url = https://github.com/thomblake/js3-mode
+[submodule "jshint-mode"]
+	path = jshint-mode
+	url = https://github.com/daleharvey/jshint-mode
