@@ -1,0 +1,14 @@
+;; Emacs-W3 HTTP cookies file
+;; Automatically generated file!!! DO NOT EDIT!!!
+
+(setq url-cookie-storage
+ 'nil)
+(setq url-cookie-secure-storage
+ '(("circleci.com"
+  [url-cookie "ring-session" "xxRHU%2BT%2FOPSXS4F7a4pYLkQjFSARatZTztey7L%2BIWeITgzyJg9Y%2B5ICbKtBrV409%2BcJMaU03kJFSwn3Xr6ADA39L7L%2BJdhlbQdp75MVcg%2Bpl4rHee4UCMpLX1OaRITPhRTGE6oWtj7lURgE0FmgagXH3m0r7qpxLwwAhJxzJUeUZ8tmBC%2BKUymI93joDRHp4wX0ALOOxkoddZ%2Fzl%2BawI6dSs%2Fh2iHnQkK16Fy%2B2%2B4%2BIA5Amt%2BbHVV4ts3VICILSxIc1R7WauWiYwbMXrnsYWmIf0F017gzlaRcKKaqypjMZIliN1tJeQbGN2QJSh6ZWqAOBtwNotjE7VZH2VBtWkfy8SmYCx3aRRHXdC1UcQ3pMfiO8leCNRe8w9iLLLit1a--tQED8thwgLKKv3L2HXv3IDDLhx%2BZYP7mghihlJvifss%3D" "Sat Nov 10 03:49:05 2018 GMT" "/" "circleci.com" t]))
+)
+
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; End:
