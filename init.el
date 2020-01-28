@@ -1,4 +1,4 @@
-
+(message "here!!!");
 (load "~/.emacs.d/kbd-macros.el")
 (load "~/.emacs.d/kbd-shortcuts.el")
 
