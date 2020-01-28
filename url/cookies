@@ -5,7 +5,7 @@
  'nil)
 (setq url-cookie-secure-storage
  '(("circleci.com"
-  [url-cookie "ring-session" "xxRHU%2BT%2FOPSXS4F7a4pYLkQjFSARatZTztey7L%2BIWeITgzyJg9Y%2B5ICbKtBrV409%2BcJMaU03kJFSwn3Xr6ADA39L7L%2BJdhlbQdp75MVcg%2Bpl4rHee4UCMpLX1OaRITPhRTGE6oWtj7lURgE0FmgagXH3m0r7qpxLwwAhJxzJUeUZ8tmBC%2BKUymI93joDRHp4wX0ALOOxkoddZ%2Fzl%2BawI6dSs%2Fh2iHnQkK16Fy%2B2%2B4%2BIA5Amt%2BbHVV4ts3VICILSxIc1R7WauWiYwbMXrnsYWmIf0F017gzlaRcKKaqypjMZIliN1tJeQbGN2QJSh6ZWqAOBtwNotjE7VZH2VBtWkfy8SmYCx3aRRHXdC1UcQ3pMfiO8leCNRe8w9iLLLit1a--tQED8thwgLKKv3L2HXv3IDDLhx%2BZYP7mghihlJvifss%3D" "Sat Nov 10 03:49:05 2018 GMT" "/" "circleci.com" t]))
+  [url-cookie "ring-session" "jC7Pv%2FpqDT3u%2BjzzBfw4KddQz7dlEmqWdRQ7b2HXwxnu%2BF85Geqj%2BtpVJ8J3D5K15SFGBgFWWFpZN%2B3NbLIcna9OV48LFDox5IHD0x3Ubs86wbGolTW6C8gFNAab4OdSJu0KLhfPCkdFgnQl1f9tEqPqzisckt0jByXehC%2FAQqhqaazWiDx6ksZy1eN3FeeLyODh5P%2F7wUjvKzpl4JuxhMVoz5e4zwaIhiQP84oJOrUhTRPHm3Zd%2FP9BGbFlyBAc%2FMkKiOwyfx1ovzakysMdyrIgnWBwf1eIhGdnEz7juZYHWvke%2BYUZffIfRPI6O%2FP4G3QKQhHqyxvOBhe0Xv9Ap7LA6Tr2Cd5h%2F1TW0EQDvEyBPBvSpNxgap404i2%2BIqKH--A2zTK1cya1r%2BsSWMnXSYV3Dv1KyJE7CYgZx7Dy8CNqw%3D" "Wed Dec 04 05:42:56 2019 GMT" "/" "circleci.com" t]))
 )
 
 ;; Local Variables:
