@@ -1,8 +1,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; json-mode
-(add-to-list 'load-path "~/.emacs.d/json-mode")
-(add-to-list 'load-path "~/.emacs.d/json-snatcher")
-(add-to-list 'load-path "~/.emacs.d/json-reformat")
+(add-to-list 'load-path "~/.emacs.d/lisp/json-mode")
+(add-to-list 'load-path "~/.emacs.d/lisp/json-snatcher")
+(add-to-list 'load-path "~/.emacs.d/lisp/json-reformat")
 (autoload 'json-mode "json-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.json\\'"  . json-mode))
 
@@ -16,15 +16,15 @@
 (load "json-reformat")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path "~/.emacs.d/jshint-mode")
+(add-to-list 'load-path "~/.emacs.d/lisp/jshint-mode")
 (require 'flymake-jshint)
 (add-hook 'javascript-mode-hook
 					(lambda () (flymake-mode t)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; load minor modes
-(add-to-list 'load-path "~/.emacs.d/js2-minor-modes")
-(load-file "~/.emacs.d/js2-minor-modes/utils.el")
+(add-to-list 'load-path "~/.emacs.d/lisp/js2-minor-modes")
+(load-file "~/.emacs.d/lisp/js2-minor-modes/utils.el")
 (require 'js2-node-mode)
 (require 'js2-browser-mode)
 (require 'js2-jasmine-mode)
@@ -33,7 +33,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; use js2-mode for .js
-(add-to-list 'load-path "~/.emacs.d/js2-mode")
+(add-to-list 'load-path "~/.emacs.d/lisp/js2-mode")
 (autoload 'js2-mode  "js2-mode" nil t)
 (autoload 'js2-jsx-mode  "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js\\'"  . js2-mode))

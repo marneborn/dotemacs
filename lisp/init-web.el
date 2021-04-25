@@ -1,5 +1,5 @@
 
-(add-to-list 'load-path "~/.emacs.d/web-mode")
+(add-to-list 'load-path "~/.emacs.d/lisp/web-mode")
 
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))

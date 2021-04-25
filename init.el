@@ -1,6 +1,6 @@
-(message "here!!!");
-(load "~/.emacs.d/kbd-macros.el")
-(load "~/.emacs.d/kbd-shortcuts.el")
+(setq inhibit-startup-screen t)
+(load "~/.emacs.d/lisp/kbd-macros.el")
+(load "~/.emacs.d/lisp/kbd-shortcuts.el")
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
@@ -8,7 +8,7 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 
-(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/lisp")
 
 (set-default 'truncate-lines t)
 (setq truncate-partial-width-windows nil)
